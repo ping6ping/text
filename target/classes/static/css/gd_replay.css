@@ -1,0 +1,134 @@
+a,b,body,canvas,dd,div,dl,dt,em,form,h1,h2,h3,h4,h5,h6,html,img,input,label,li,ol,p,q,span,ul{margin:0;padding:0;border:0;outline:0;font-size-adjust:none;-webkit-text-size-adjust:100%!important;-webkit-touch-callout:none}
+*{-webkit-tap-highlight-color:transparent}
+ul,li{ list-style:none}
+img{ border:0;}
+a{text-decoration:none;color:#282828;}
+.cfix:after { content: ".";	display:block; clear:both; visibility:hidden; line-height:0; height:0 }
+.cfix {	zoom:1 }
+img { width:100%;height:100% }
+.clear {clear:both;height:0;}
+body a:hover{
+	text-decoration:none;
+}
+
+.padright10 {padding-right:10px;}
+/*enclosure*/
+.annex_list {padding:20px 20px 5px 20px;clear:both;}
+.annex_list li {padding-bottom:15px;clear:both;}
+.annex_list .file_name {float:left;width:58%;padding-right:2%;}
+.annex_list .file_name h3 {font-size:12px;color:#282828;padding-left:22px;font-weight:normal;}
+.icon_excel {background:url(../images/file-excel.png) no-repeat 0 0;background-size:12px 16px;line-height: 16px;}
+.icon_pdf {background:url(../images/pdf1.png) no-repeat 0 0;background-size:12px 16px;line-height: 16px;}
+.icon_ppt {background:url(../images/pptfile.png) no-repeat 0 0;background-size:12px 16px;line-height: 16px;}
+.icon_rarzip {background:url(../images/rarzip.png) no-repeat 0 0;background-size:12px 16px;line-height: 16px;}
+.icon_word {background:url(../images/wordfile.png) no-repeat 0 0;background-size:11px 16px;line-height: 16px;}
+.icon_other {background:url(../images/file.png) no-repeat 0 0;background-size:11px 16px;line-height: 16px;}
+.annex_list .mid_time {float:left;width:20%;padding-right:2%;font-size:12px;color:#989898;}
+.annex_list .mid_time span {padding-right:10px;}
+.annex_list .r_download {float:right;width:15%;font-size:12px;color:#989898;padding-left:22px;}
+.annex_list .r_download span {margin-left: -226%}
+.choose_f {background:url(../images/fj.png) no-repeat 0 0;background-size:12px 16px;line-height: 16px;}
+
+.chooseBtn {
+            display: none;
+ }
+
+ .choose-label {
+     box-shadow: #ccc 0px 0px 0px 1px;
+     width: 40px;
+     height: 20px;
+     display: inline-block;
+     border-radius: 20px;
+     position: relative;
+     background-color: #bdbdbd;
+     overflow: hidden;
+     margin-top: 3%;
+ }
+
+ .choose-label:before {
+     content: '';
+     position: absolute;
+     left: 0;
+     width: 20px;
+     height: 20px;
+     display: inline-block;
+     border-radius: 20px;
+     background-color: #fff;
+     z-index: 20;
+     -webkit-transition: all 0.5s;
+     transition: all 0.5s;
+ }
+
+ .chooseBtn:checked + label.choose-label:before {
+     left: 20px;
+ }
+
+ .chooseBtn:checked + label.choose-label {
+     background-color: #e7a400;
+ }
+ 
+ .chooseBtnSm {
+            display: none;
+ }
+ .choose-label-sm {
+     box-shadow: #ccc 0px 0px 0px 1px;
+     width: 30px;
+     height: 15px;
+     display: inline-block;
+     border-radius: 20px;
+     position: relative;
+     background-color: #bdbdbd;
+     overflow: hidden;
+     margin-top: 3%;
+ }
+
+ .choose-label-sm:before {
+     content: '';
+     position: absolute;
+     left: 0;
+     width: 15px;
+     height: 15px;
+     display: inline-block;
+     border-radius: 20px;
+     background-color: #fff;
+     z-index: 20;
+     -webkit-transition: all 0.5s;
+     transition: all 0.5s;
+ }
+
+ .chooseBtnSm:checked + label.choose-label-sm:before {
+     left: 15px;
+ }
+
+ .chooseBtnSm:checked + label.choose-label-sm {
+     background-color: #e7a400;
+ }
+ 
+ h3.title {
+            color: #F2AE11;
+            font-size: 1.3em;
+            margin-bottom: 3em;
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.1;
+        }
+        h3.title span {
+            display: block;     /*设置为块级元素会独占一行形成上下居中的效果*/
+            font-size: 13px;
+            color: #212121;
+            position: relative;   /*定位横线（当横线的父元素）*/
+        }
+        h3.title span:before, h3.title span:after {
+            content: '';                 /*CSS伪类用法*/
+            position: absolute;         /*定位背景横线的位置*/
+            top: 52%;
+            background: #494949;       /*宽和高做出来的背景横线*/
+            width: 40px;
+            height: 1px;
+        }
+        h3.title span:before{
+            left: 32%;        /*调整背景横线的左右距离*/
+        }
+        h3.title span:after {
+            right: 38%;
+        }

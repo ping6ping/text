@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 该文件存放CRUD的sql语句 -->
+<mapper namespace="test.mapper.RoleMapper">
+    <resultMap type = "Role" id = "RoleList">
+    	<result column="ROLEID" property="roleid" jdbcType="VARCHAR" />
+    	<result column="ROLE" property="role" jdbcType="VARCHAR" />
+    	<result column="ROLE_NAME" property="role_name" jdbcType="VARCHAR" />
+    </resultMap>
+    
+	<select id="findRoleListByName" parameterType="String" resultMap="RoleList">
+		select r.role_name,r.role from user_role ur,role r where ur.roleid = r.roleid and ur.login_name = #{name}
+	</select>
+</mapper>

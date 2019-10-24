@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 该文件存放CRUD的sql语句 -->
+<mapper namespace="test.mapper.UserMapper">
+
+    <sql id="UserInfo">
+	   <if test="login_name != null and login_name != ''"> and su.login_name = #{login_name} </if>
+	
+	   <if test="message_id != null and message_id != ''"> and t.MESSAGE_ID = #{message_id} </if>
+	 
+	</sql>
+	
+	<select id="findByName" parameterType="String" resultType="User">
+		SELECT 	user_id, 
+			login_name, 
+			dept_id
+			FROM 	
+			sys_user where login_name = #{value}
+	</select>
+	
+	<select id="getUser" parameterType="User" resultType="User">
+		SELECT 	user_id, 
+			login_name, 
+			dept_id
+			FROM 	
+			sys_user su where 1=1
+	</select>
+</mapper>
