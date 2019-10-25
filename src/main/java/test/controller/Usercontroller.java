@@ -1,4 +1,8 @@
 package test.controller;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.shiro.SecurityUtils;
@@ -13,6 +17,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import test.domain.Menu;
+import test.domain.ShiroUtils;
+import test.domain.User;
+import test.service.MenuService;
 import test.service.UserService;
 
 @Controller
@@ -21,6 +29,8 @@ public class Usercontroller {
 	@Autowired
 	private UserService  userService;
 	
+	@Autowired
+	private MenuService menuService;
 	@GetMapping("/login")
 	public String toLogin(String pp){
 		
@@ -49,6 +59,14 @@ public class Usercontroller {
 	
 	@RequestMapping("/loginSuccess")
 	public String loginSuccess() {
+		 User user = ShiroUtils.getSysUser();
+		//获取第一层目录
+		 HashMap<String, String> map = new HashMap<String, String>();
+		 map.put("dept_id", user.getDept_id());
+		 map.put("menu_type", "C");
+		 
+		 List<Menu> menus = menuService.getMenuList(map);
+		
 		return "main";
 	}
 	

@@ -67,7 +67,7 @@ public class UserRealm extends AuthorizingRealm{
 		
 		UsernamePasswordToken  token = (UsernamePasswordToken)arg0;
 		User user = new User();
-		user.setName(token.getUsername());
+		user.setLogin_name(token.getUsername());
 		String password=DigestUtils.md5DigestAsHex(String.valueOf(token.getPassword()).getBytes());
 		//user.setPassword(String.valueOf(token.getPassword()));
 		user.setPassword(password);

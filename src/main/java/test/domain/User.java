@@ -7,12 +7,22 @@ public class User {
 	private String password;
 	
 	private String id;
+	
+	private String dept_id;
 
-	public String getName() {
+	public String getDept_id() {
+		return dept_id;
+	}
+
+	public void setDept_id(String dept_id) {
+		this.dept_id = dept_id;
+	}
+
+	public String getLogin_name() {
 		return login_name;
 	}
 
-	public void setName(String login_name) {
+	public void setLogin_name(String login_name) {
 		this.login_name = login_name;
 	}
 
