@@ -39,16 +39,12 @@ public class Usercontroller {
 			return "redirect:/loginSuccess";
 		} catch (UnknownAccountException  e) {
 			model.addAttribute("msg","用户名不存在");
-			return "toLogin";
+			return "Login";
 		}catch (IncorrectCredentialsException  e) {
 			// TODO: handle exception
 			model.addAttribute("msg","密码错误");
-			return "toLogin";
+			return "login";
 		}
-		catch (Exception e) {
-			return "toLogin";
-		}
-	
 	}
 	
 	@RequestMapping("/loginSuccess")

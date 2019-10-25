@@ -17,6 +17,7 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.util.DigestUtils;
 
 import test.domain.Role;
 import test.domain.User;
@@ -67,16 +68,18 @@ public class UserRealm extends AuthorizingRealm{
 		UsernamePasswordToken  token = (UsernamePasswordToken)arg0;
 		User user = new User();
 		user.setName(token.getUsername());
-		user.setPassword(String.valueOf(token.getPassword()));
-	    userService
+		String password=DigestUtils.md5DigestAsHex(String.valueOf(token.getPassword()).getBytes());
+		//user.setPassword(String.valueOf(token.getPassword()));
+		user.setPassword(password);
+	    user=userService.getUser(user);
 		
-		if(!token.getUsername().equals(name))
+		if(user == null)
 		{
 			//throw new UnknownAccountException();
 			return null;
 		}
 		
-		return new SimpleAuthenticationInfo(token.getUsername(),password,"");
+		return new SimpleAuthenticationInfo(user,token.getPassword(),getName());
 		
 		
 	}
