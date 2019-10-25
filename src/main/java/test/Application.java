@@ -14,7 +14,7 @@ public class Application {
 	}
 	
 	public String name() {
-    //可不可以和你在一起
+    //可不可以和你在一起  哈哈
 		return "dd";
 	}
 
