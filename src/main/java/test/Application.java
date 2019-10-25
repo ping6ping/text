@@ -14,7 +14,7 @@ public class Application {
 	}
 	
 	public String name() {
-    //可不可以和你在一起  哈哈
+    //可不可以和你在一起  哈哈  主分支
 		return "dd";
 	}
 
