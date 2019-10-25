@@ -14,6 +14,7 @@ public class Application {
 	}
 	
 	public String name() {
+		//最新的版本是什么样子
 		return "dd";
 	}
 
