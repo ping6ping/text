@@ -6,4 +6,5 @@ import test.domain.Menu;
 
 public interface MenuService {
 	public List<Menu> getMenuList(HashMap<String, String> map);
+	public List<Menu> getAllChildMenu(List<Menu> menus);
 }

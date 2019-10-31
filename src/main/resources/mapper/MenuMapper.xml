@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 该文件存放CRUD的sql语句 -->
+<mapper namespace="test.mapper.MenuMapper">
+    <sql id="MenuInfo">
+	   <if test=" menu_name != null and menu_name != ''"> and su.menu_name = #{menu_name} </if>
+	
+	</sql>
+     
+    <resultMap type = "Menu" id = "MenuList">
+    	<result column="menu_id" property="menu_id" jdbcType="VARCHAR" />
+    	<result column="menu_name" property="menu_name" jdbcType="VARCHAR" />
+    	<result column="menu_type" property="menu_type" jdbcType="VARCHAR" />
+    </resultMap>
+    
+	<select id="getMenuList" parameterType="String" resultMap="MenuList">
+		select * from  sys_role_dept srd,sys_role_menu srm,sys_menu sm  where  srd.role_id = srm.role_id and srm.menu_id = sm.menu_id
+		and srd.dept_id = #{dept_id}
+		<if test=" menu_type != null and  menu_type != ''"> and menu_type = #{menu_type} </if>
+	</select>
+	
+	<select id="getChildMenu" parameterType="String" resultMap="MenuList">
+		select * from sys_menu where 1=1
+		<if test=" menu_id != null and  menu_id != ''"> and parent_id = #{menu_id} </if>
+	</select>
+</mapper>

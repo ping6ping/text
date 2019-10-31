@@ -1,9 +1,9 @@
 Manifest-Version: 1.0
 Implementation-Title: text
 Implementation-Version: 0.0.1-SNAPSHOT
-Built-By: Administrator
+Built-By: fpp
 Implementation-Vendor-Id: com.springboot
-Build-Jdk: 1.8.0_121
+Build-Jdk: 1.8.0_191
 Implementation-URL: http://projects.spring.io/spring-boot/text/
 Created-By: Maven Integration for Eclipse
 Implementation-Vendor: Pivotal Software, Inc.

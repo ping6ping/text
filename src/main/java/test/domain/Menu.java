@@ -1,5 +1,10 @@
 package test.domain;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 public class Menu {
 
 	private String order_num;
@@ -107,4 +112,14 @@ public class Menu {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
+	
+	/** 子菜单 */
+    private List<Menu> children = new ArrayList<Menu>();
+	public List<Menu> getChildren() {
+		return children;
+	}
+	public void setChildren(List<Menu> children) {
+		this.children = children;
+	}
+    
 }

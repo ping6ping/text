@@ -9,4 +9,6 @@ import test.domain.Menu;
 public interface MenuMapper {
 
 	public List<Menu> getMenuList(HashMap<String, String> map);
+
+	public List<Menu> getChildMenu(String menu_id);
 }
