@@ -38,6 +38,9 @@ public class ShiroConfig {
 		filterMap.put("/login", "anon");
 		filterMap.put("/testRedis", "anon");
 		filterMap.put("/redis", "anon");
+		filterMap.put("/firstDemo", "anon");
+		filterMap.put("/leave", "anon");
+		filterMap.put("/queryLeave", "anon");
 		filterMap.put("/*", "authc");
 		shiroFilterFactoryBean.setUnauthorizedUrl("/noAccess");
 		shiroFilterFactoryBean.setSuccessUrl("/loginSuccess");

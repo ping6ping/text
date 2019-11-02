@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="test.mapper.TicketInfoMapper">
+
+	<!-- 新增请假信息 -->
+	<insert id="addTicketInfo" parameterType="TicketInfo">
+		insert into ACT_TICKETINFO(id,name,msg,status)
+		values(#{id},#{name},#{msg},'')
+	</insert>
+	
+	<!-- 根据ID查询请假信息 -->
+	<select id="queryTicketInfoById" parameterType="java.lang.String" resultType="TicketInfo">
+		select * from ACT_TICKETINFO where id = #{id}
+	</select>
+	
+	<!-- 修改请假流程状态 -->
+	<update id="updateProcessStatus" parameterType="TicketInfo">
+		update ACT_TICKETINFO set status = #{status} where id = #{id}
+	</update>
+	
+	<!-- 根据业务ID查询流程ID -->
+	<select id="queryProcessIdByBizKey" resultType="java.lang.String" parameterType="java.lang.String">
+		select ID_ from ACT_HI_PROCINST where BUSINESS_KEY_ = #{bizKey}
+	</select>
+	
+	<!-- 根据taskId查询流程ID -->
+	<select id="queryProcessIdByTaskId" resultType="java.lang.String" parameterType="java.lang.String">
+		select PROC_INST_ID_ from ACT_HI_TASKINST where ID_ = #{taskId}
+	</select>
+	
+	<!-- 根据taskId查询审批意见 -->
+	<select id="queryMessageByTaskId" resultType="java.lang.String" parameterType="java.lang.String">
+		select MESSAGE_ from ACT_HI_COMMENT where TASK_ID_ = #{taskId}
+	</select>
+</mapper>
