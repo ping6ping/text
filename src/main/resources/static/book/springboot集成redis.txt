@@ -1,3 +1,7 @@
+﻿git 问题:git pull 时遇到问题 Pulling is not possible because you have unmerged files
+解决:1、先将代码提交至本地仓库  git add .---> git commit -->git pull 
+
+
 redis的启动：
 	1、命令./redis-server redis.windows.conf
 	2、直接点击redis安装文件夹中的“redis-server.exe”就可以启动
@@ -21,3 +25,35 @@ redis的启动：
     5、防止高并发，缓存穿透问题
 		a、在方法名上加锁synchronized    public synchronized List<User> getAllUsers() {  //牺牲了性能
 		b、synchronized(this){}锁住当前对象
+操作命令:
+	            select 5 切换数据库 （默认使用0数据库）
+                    flushall (清空所有数据)
+                    flushdb（清空当前库）
+	            exit (退出)
+                    dbsize 查看当前数据库key的数目
+
+1+5命令: （1中key操作，5种数据类型操作）
+	key常用命令:  keys * 列出当前库所有的key(线上不建议使用，数量太大)  
+		      exists key有没有存在某个key
+		      move key db 将当前key移动到指定库中  
+		      expire key  seconds 设置key的过期时间
+		      ttl key 查看key还有多少秒过期，-1永不过期，-2已过期或key不存在
+		      type key 存储数据类型
+		      del  key 删除key
+	
+	5种数据类型操作: string: set key value 放值 
+						     get key 取值
+							 incr key 将key中存储的数字值加1，如果key不存在，则key的值先被初始化为0再执行incr操作（只能对数字类型的数据操作）
+							 decr key 将key中存储的数字值加-1，如果key不存在，则key的值先被初始化为0再执行decr操作（只能对数字类型的数据操作）
+							 setex key second value      set expire的简写，设置key的值，并将key的生存时间设为seconds(以秒为单位)
+							 setnx key value   set if not exists的简写，如果key不存在，则set值，存在则不设置值 
+							 getset key value 设置key的值为value，并返回key的旧值
+							 strlen key 返回key所存储的字符串长度
+							 append key 如果key存在且是字符串，则将value追加到key原来旧值的末尾；如果key不存在，则将key设值为value
+							 incrby key num 将key中存储的数字值加num，如果key不存在，则key的值先被初始化为0再执行增量操作（只能对数字类型的数据操作）
+							 decrby key num 将key中存储的数字减去num，如果key不存在，则key的值先被初始化为0再执行减操作（只能对数字类型的数据操作）
+							 getrange key start end 获取key中字符串值从start开始到end结束的子字符串
+							 setrange key offset  value 从指定的位置开始将key值替换为新的字符串
+							 mset 同时设置一个或多个key-value对
+							 mget 获取所有（一个或多个）给定key的值
+							 msetnx 同时设置一个或多个key-value对，当且仅当所有给定key都不存在时才能设置成功，否则只要有一个key存在都会失败
